@@ -1,0 +1,217 @@
+@import url('https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Prompt, sans-serif;
+  }
+
+  #max-nav {
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+    margin: 0;
+    padding: 10px;
+    height: 70px;
+    background-color: white;
+    box-shadow: 5px 5px 10px rgba(142, 142, 142, 0.175);
+  }
+  #min-nav {
+    display: none;
+  }
+
+  #max-nav section{
+    width: 90%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  #max-nav .wrapper-max{
+  display: grid;
+  grid-template-columns: 1.5fr 1.5fr 1fr;
+  width: 350px;
+  margin: 0 auto;
+  margin-top: 8px;
+  margin-right: 0px;
+  
+
+}
+
+  #max-nav .wrapper-max a{
+    text-decoration: none;
+    margin: auto;
+    color: #666666;
+    transition: ease-in-out .3s;
+    letter-spacing: 1px;
+    font-weight: 600;
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+  .profile-icon {
+    font-size: 25px;
+  }
+  #max-nav .wrapper-max a:hover {
+    letter-spacing: 2px;
+  }
+
+#logo-max {
+  width: 120px;
+  padding: 5px;
+}
+#logo-min {
+  width: 60px;
+  position: absolute;
+  z-index: 2;
+  left: 20px;
+  top: 20px;
+}
+
+@media screen and (max-width:850px) {
+  #max-nav {
+    display: none;
+  }
+  #min-nav {
+    display: initial;
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+    margin: 0;
+    padding: 10px;
+    height: 70px;
+    background-color: white;
+  
+  }
+  #min-nav .wrapper{
+    position: fixed;
+    top: 0;
+    right: -100%;
+    height: 100%;
+    width: 100%;
+    background: rgba(246, 246, 246, 0.807);
+    transition: all 0.6s ease-in-out;
+  }
+  #active:checked ~ .wrapper{
+    right:0;
+  }
+  .menu-btn{
+    position: absolute;
+    z-index: 2;
+    right: 20px;
+    top: 20px;
+    height: 50px;
+    width: 50px;
+    text-align: center;
+    line-height: 50px;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+  }
+  .menu-btn span,
+  .menu-btn:before,
+  .menu-btn:after{
+    content: "";
+    position: absolute;
+    top: calc(50% - 1px);
+    left: 30%;
+    width: 40%;
+    border-bottom: 2px solid rgb(107, 107, 107);
+    transition: transform .6s cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+
+  .menu-btn:before{
+    transform: translateY(-8px);
+  }
+  .menu-btn:after{
+    transform: translateY(8px);
+  }
+  
+  .close {
+    z-index: 100;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+  }
+  
+  /* closing animation */
+  #active:checked + .menu-btn span {
+    transform: scaleX(0);
+  }
+  #active:checked + .menu-btn:before {
+    transform: rotate(45deg);
+    border-color: rgb(107, 107, 107);
+  }
+  #active:checked + .menu-btn:after {
+    transform: rotate(-45deg);
+    border-color: rgb(107, 107, 107);
+  }
+  #min-nav .wrapper ul{
+    position: absolute;
+    width: 100%;
+    top: 60%;
+    left: 50%;
+    height: 90%;
+    transform: translate(-50%, -50%);
+    list-style: none;
+    text-align: center !important;
+  }
+  #min-nav .wrapper ul li{
+    height: 8%;
+    margin: 5px 0;
+  }
+  #min-nav .wrapper ul li a{
+    text-align: center !important;
+    text-decoration: none;
+    font-size: 25px;
+    font-weight: 300;
+    color: rgb(68, 67, 67);
+    transition: 0.3s;
+    transition: transform .6s cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+
+  #min-nav .wrapper ul li a:hover:after{
+    transform: scaleY(1);
+  }
+  #min-nav .wrapper ul li a:hover{
+    letter-spacing: 2px;
+    transition: 0.2s ease-in-out;
+  }
+  input[type="checkbox"]{
+    display: none;
+  }
+  .content{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    text-align: center;
+    width: 100%;
+    color: #535252;
+  }
+  .content .title{
+    font-size: 40px;
+    font-weight: 700;
+  }
+  .content p{
+    font-size: 35px;
+    font-weight: 600;
+  }
+  
+  #active:checked ~ #min-nav .wrapper ul li a{
+    opacity: 1;
+  }
+  #min-nav .wrapper ul li a{
+    transition: opacity 1.2s, transform 1.2s cubic-bezier(0.215, 0.61, 0.355, 1);
+    transform: translateX(100px);
+  }
+  #active:checked ~ #min-nav .wrapper ul li a{
+    transform: none;
+    transition-timing-function: ease, cubic-bezier(.1,1.3,.3,1); 
+     transition-delay: .6s;
+    transform: translateX(-100px);
+  }
+}
+ 
